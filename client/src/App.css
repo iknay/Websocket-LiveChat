@@ -1,0 +1,42 @@
+.scrollbar {
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+/* Set the width and height of the scrollbar */
+.scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  scrollbar-width: none;
+}
+
+.scrollbar:hover::-webkit-scrollbar-track {
+  background-color: transparent;
+  scrollbar-width: auto;
+  width: 6px;
+  height: 6px;
+}
+
+/* Style the thumb of the scrollbar */
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 8px;
+  cursor: auto;
+}
+
+.scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: #e4e4e7;
+  border-radius: 8px;
+  cursor: auto;
+}
+
+/* Style the track of the scrollbar */
+.scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 8px;
+}
