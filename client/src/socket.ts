@@ -4,5 +4,4 @@ import { io } from "socket.io-client";
 
 export const socket = io("https://websocket-live-chat-server.vercel.app", {
   withCredentials: true,
-  transports: ["websocket"],
 });
