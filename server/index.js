@@ -19,6 +19,7 @@ app.use(cors(corsOptions));
 const server = http.createServer(app);
 
 const io = new Server(server, {
+  addTrailingSlash: false,
   cors: {
     origin: "https://websocket-live-chat-client.vercel.app",
     methods: ["GET", "POST"],
