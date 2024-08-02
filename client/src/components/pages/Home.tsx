@@ -6,7 +6,6 @@ import { socket } from "../../socket";
 import { useChatroomStore } from "../../zustand/chatroom";
 import { useNavigate } from "react-router-dom";
 import { PAGE_ROUTES } from "../../routings/routings";
-import { useEffect } from "react";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -20,21 +19,6 @@ const Home = () => {
       navigate(PAGE_ROUTES.CHATROOM);
     }
   };
-
-  useEffect(() => {
-    socket.on("connect", () => {
-      console.log("Connected to server");
-    });
-
-    socket.on("disconnect", () => {
-      console.log("Disconnected from server");
-    });
-
-    return () => {
-      socket.off("connect");
-      socket.off("disconnect");
-    };
-  }, []);
 
   return (
     <div className="flex flex-col gap-8 h-[100vh] items-center justify-center w-full">

@@ -14,7 +14,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use(express.static("../client/dist"));
+// app.use(express.static("../client/dist"));
 
 const server = http.createServer(app);
 
