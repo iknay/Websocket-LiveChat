@@ -23,7 +23,7 @@ const Home = () => {
 
   useEffect(() => {
     // Add a socket event listener
-    socket.on("connect", () => {
+    socket.on("connection", () => {
       console.log("Connected to server");
     });
 
