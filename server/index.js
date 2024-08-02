@@ -22,9 +22,6 @@ const io = new Server(server, {
   cors: {
     origin: "https://websocket-live-chat-client.vercel.app",
     methods: ["GET", "POST"],
-    credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization"],
-    optionsSuccessStatus: 204,
   },
 });
 

@@ -22,17 +22,14 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // Add a socket event listener
-    socket.on("connection", () => {
+    socket.on("connect", () => {
       console.log("Connected to server");
     });
 
-    // Optionally, you can add more event listeners
     socket.on("disconnect", () => {
       console.log("Disconnected from server");
     });
 
-    // Cleanup the event listeners on component unmount
     return () => {
       socket.off("connect");
       socket.off("disconnect");
