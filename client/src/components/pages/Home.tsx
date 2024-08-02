@@ -6,6 +6,7 @@ import { socket } from "../../socket";
 import { useChatroomStore } from "../../zustand/chatroom";
 import { useNavigate } from "react-router-dom";
 import { PAGE_ROUTES } from "../../routings/routings";
+import { useEffect } from "react";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -15,10 +16,28 @@ const Home = () => {
 
   const joinRoom = async () => {
     if (username !== "" && chatroomName !== "") {
-      await socket.emit("join_room", chatroomName);
+      socket.emit("join_room", chatroomName);
       navigate(PAGE_ROUTES.CHATROOM);
     }
   };
+
+  useEffect(() => {
+    // Add a socket event listener
+    socket.on("connect", () => {
+      console.log("Connected to server");
+    });
+
+    // Optionally, you can add more event listeners
+    socket.on("disconnect", () => {
+      console.log("Disconnected from server");
+    });
+
+    // Cleanup the event listeners on component unmount
+    return () => {
+      socket.off("connect");
+      socket.off("disconnect");
+    };
+  }, []);
 
   return (
     <div className="flex flex-col gap-8 h-[100vh] items-center justify-center w-full">
