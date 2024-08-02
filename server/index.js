@@ -6,7 +6,7 @@ const { Server } = require("socket.io");
 const path = require("path");
 
 const corsOptions = {
-  origin: "https://whisper-websocket.vercel.app",
+  origin: "https://websocket-live-chat-client.vercel.app",
   credentials: true, //access-control-allow-credentials:true
   methods: ["GET", "POST"],
   optionSuccessStatus: 200,
@@ -20,7 +20,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://whisper-zeta.vercel.app",
+    origin: "https://websocket-live-chat-client.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
