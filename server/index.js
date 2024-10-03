@@ -6,10 +6,10 @@ const { Server } = require("socket.io");
 const path = require("path");
 
 const corsOptions = {
-  origin: "https://websocket-live-chat-client.vercel.app",
-  credentials: true, //access-control-allow-credentials:true
+  origin: "http://localhost:3000",
+  credentials: true,
   methods: ["GET", "POST"],
-  optionSuccessStatus: 200,
+  optionsSuccessStatus: 200,
   allowedHeaders: ["Content-Type", "Authorization"],
 };
 app.use(cors(corsOptions));
@@ -21,8 +21,9 @@ const server = http.createServer(app);
 const io = new Server(server, {
   addTrailingSlash: false,
   cors: {
-    origin: "https://websocket-live-chat-client.vercel.app",
+    origin: "http://localhost:3000",
     methods: ["GET", "POST"],
+    credentials: true,
   },
 });
 
